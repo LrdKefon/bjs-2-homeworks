@@ -20,3 +20,7 @@ function getUsersNamesInAgeRange(users, gender) {
         }
 
 }
+// Вариант укороченноо решения
+// return users.filter(user => user.gender === gender)
+//     .map(user => user.age)
+//     .reduce((acc, age, index, arr) => acc + age / arr.length, 0);
