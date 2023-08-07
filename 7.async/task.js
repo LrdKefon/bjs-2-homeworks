@@ -9,14 +9,15 @@ class AlarmClock {
       } else if ( this.alarmCollection.find(setup => setup.time === time) ) {
         console.warn('Уже присутствует звонок на это же время');
       }
-      this.alarmCollection.push({callback, time, canCall: true});
+      this.alarmCollection.push({time, callback, canCall: true});
     }
     removeClock(time) {
-      this.alarmCollection = this.alarmCollection.filter(setup => setup.time !== time)
+      this.alarmCollection = this.alarmCollection.filter(
+        setup => setup.time !== time
+      )
     }
-    
     getCurrentFormattedTime() {
-        return new Date().toLocaleTimeString().slice(0, -3);
+      return new Date().toLocaleTimeString().slice(0, -3);
     }
     start() {
       if (this.intervalId) {
